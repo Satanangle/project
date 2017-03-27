@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        body{
+            height: 3000px;
+        }
+        #btn{
+            position: fixed;
+            right: 0;
+            bottom: 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <input id="btn" type="button" value="返回顶部">
+    <script>
+        window.onload=function(){
+           
+            var oBtn=document.getElementById('btn');
+            var timer=null;//创建一个空的定时器变量
+            oBtn.onclick=function(){
+                
+                timer= setInterval(function(){  //设置定时器
+                    var scrollTop=document.documentElement.scrollTop||document.body.scrollTop;
+
+                    var ispeed=Math.floor(-scrollTop/8);  //Math.floor向下取整
+                    //alert(ispeed);
+                    if(scrollTop==0){  //当滚动距离为0时，
+                        clearInterval(timer); //清除定时器
+                    }
+                   document.body.scrollTop=document.documentElement.scrollTop=scrollTop+ispeed;  // 总滚动距离-向上滚动的距离 
+                }, 50);
+            }
+        }
+    </script>
+</body>
+</html>

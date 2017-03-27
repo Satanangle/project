@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        window.onload=function(){
+            var oText=document.getElementById('text');
+            var oBtn=document.getElementById('btn');
+            var oUl=document.getElementById('ul');
+            oBtn.onclick=function(){
+                var aLi=document.createElement('li');
+                 aLi.innerHTML=oText.value+" <a href='#'>del</a>";
+                 oUl.appendChild(aLi);  
+
+                 oText.value=''; 
+
+                 var a=document.getElementsByTagName('a');
+                 for(var i=0;i<a.length;i++){
+                    a[i].onclick=function(){
+                        oUl.removeChild(this.parentNode);
+                    }
+                 }
+
+            }
+
+        }
+    </script>
+</head>
+<body>
+    <input type="text" id="text" value="">
+    <input type="button" value="创建li" id="btn">
+    <ul id="ul">
+       <!--  <li>qqqqq <a href="#">del</a></li> -->
+    </ul>
+</body>
+</html>

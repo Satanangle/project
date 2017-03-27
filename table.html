@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>table布局</title>
+    <style>
+        table{
+            border:1px solid blue;
+        }
+        /*.tr{
+            border:1px solid blue; 
+        }*/
+        th{
+            color:blue;
+           border:1px solid blue;
+        }
+        td{
+            border:1px solid blue; 
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+    table  创建一个表格
+    tr    行
+    th    表头单元格
+    td    标准单元格
+    thead  表头
+    tbody  表主体
+    tfoot   表尾
+    rowspan 合并行
+    colspan  合并列
+    -->
+
+<table border="0" width="600" align="center" cellspacing="0" cellpadding="10">
+    <thead bgcolor="#f99">
+        <tr>
+            <th>姓名</th>
+            <th>性别</th>
+            <th>年龄</th>
+            <th>籍贯</th>
+            <th>职业</th>
+        </tr>
+    </thead>
+    <tbody bgcolor="#abcdef" align="center">
+    <tr>
+        <td rowspan="6">小明</td>
+        <td>男</td>
+        <td>30</td>
+        <td>武汉</td>
+        <td>IT</td>
+    </tr>
+    <tr>
+
+        <td>男</td>
+        <td>30</td>
+        <td>武汉</td>
+        <td>IT</td>
+    </tr>
+    <tr>
+
+        <td>男</td>
+        <td>30</td>
+        <td>武汉</td>
+        <td>IT</td>
+    </tr>
+    <tr>
+
+        <td>男</td>
+        <td>30</td>
+        <td>武汉</td>
+        <td>IT</td>
+    </tr>
+    <tr>
+
+        <td>男</td>
+        <td>30</td>
+        <td>武汉</td>
+        <td>IT</td>
+    </tr>
+    <tr>
+
+        <td>男</td>
+        <td>30</td>
+        <td>武汉</td>
+        <td>IT</td>
+    </tr>
+    </tbody>
+    <tfoot align="center">
+        <tr>
+            <td colspan="5">信息表</td>
+        </tr>
+    </tfoot>
+</table>
+
+</body>
+</html>

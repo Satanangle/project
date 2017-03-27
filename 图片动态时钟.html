@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>方块时间</title>
+    <script>
+       
+    window.onload=function(){
+       /* timer=null;
+        i=0;
+        //单位秒数
+        timer=setInterval(function(){
+            fn(i++);
+            function fn(n){
+          return n>9? 0:n;
+        };
+        document.getElementById("ss").innerHTML="<img src='images/"+fn(i)+".JPG'>"
+        },1000);
+
+        function fn(n){
+          return n>9? 0:n;
+        }
+        //双位秒数
+        j=0;
+        timer=setInterval(function(){
+            fn(j++);
+
+        document.getElementById("s").innerHTML="<img src='images/"+fn(j)+".JPG'>"
+        },10000);
+        /*
+        //单位分数
+        timer=setInterval(function(){
+            fn(i++);
+
+        document.getElementById("s").innerHTML="<img src='images/"+fn(i)+".JPG'>"
+        },600000);
+        
+        //双位分数
+        timer=setInterval(function(){
+            fn(i++);
+
+        document.getElementById("s").innerHTML="<img src='images/"+fn(i)+".JPG'>"
+        },6000000);
+        //单位时数
+        timer=setInterval(function(){
+            fn(i++);
+
+        document.getElementById("s").innerHTML="<img src='images/"+fn(i)+".JPG'>"
+        },360000000);
+        //双位时数
+        timer=setInterval(function(){
+            fn(i++);
+
+        document.getElementById("s").innerHTML="<img src='images/"+fn(i)+".JPG'>"
+        },3600000000);
+        
+        */
+        setInterval(function(){
+        var date=new Date();
+        var hour=date.getHours();
+            
+        var minute=date.getMinutes();
+           
+        var second=date.getSeconds();
+        document.getElementById("ss").innerHTML="<img src='images/"+Math.floor(second%10)+".JPG'>";
+        document.getElementById("s").innerHTML="<img src='images/"+Math.floor(second/10)+".JPG'>";
+        document.getElementById("ff").innerHTML="<img src='images/"+Math.floor(minute%10)+".JPG'>";
+        document.getElementById("f").innerHTML="<img src='images/"+Math.floor(minute/10)+".JPG'>";
+        document.getElementById("h").innerHTML="<img src='images/"+Math.floor(hour/10)+".JPG'>";
+        document.getElementById("hh").innerHTML="<img src='images/"+Math.floor(hour%10)+".JPG'>";
+        }, 1000)
+    } 
+
+    </script>
+    <style>
+    div{
+        float:left;
+    }
+    </style>
+</head>
+<body>
+    <div id="h"><img src="images/0.JPG"></div>
+    <div id="hh"><img src="images/0.JPG"></div>
+    <div><img src="images/colon.JPG"></div>
+    <div id="f"><img src="images/0.JPG"></div>
+    <div id="ff"><img src="images/0.JPG"></div>
+    <div><img src="images/colon.JPG"></div>
+    <div id="s"><img src="images/0.JPG"></div>
+    <div id="ss"><img src="images/0.JPG"></div>
+</body>
+</html>

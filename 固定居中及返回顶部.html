@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>固定悬浮</title>
+</head>
+<style>
+    div{
+        width:100px;
+        height: 100px;
+        background:red;
+        /*
+        方法一：
+         position: fixed;
+        top:50%;
+        right:0px;*/
+        /*方法二*/
+        position:absolute;
+        top:50%;
+        right:0px;
+        margin-top: -50px;
+        }
+        #btn1{
+            position: fixed;
+            right: 10px;
+            bottom: 0px;
+            display: none;
+        }
+</style>
+<body style="height:2000px;">
+    <div id="d1">
+        
+    </div>
+    <input type="button" name="" value="返回顶部" id="btn1">
+</body>
+<script>
+    window.onresize=window.onscroll=function(){
+    //var h=screen.height;
+    //  可视区高度
+    var hh=document.documentElement.clientHeight;
+    
+    //滚动高度
+     jl=document.body.scrollTop||document.documentElement.scrollTop;
+    console.log(jl);
+    var dh=document.getElementById("d1");
+    var t=(hh-dh.offsetHeight)/2;
+    dh.style.top=jl+t+"px";
+
+     var oBtn=document.getElementById('btn1');//获取btn
+            var timer=null;//创建一个空的定时器变量
+            oBtn.onclick=function(){
+                timer= setInterval(function(){  //设置定时器
+                    //var jll=document.documentElement.scrollTop||document.body.scrollTop;
+                    //var ispeed=Math.floor(-jl/8);  //Math.floor向下取整
+                    //alert(ispeed);
+                    if(jl==0){  //当滚动距离为0时，
+                        clearInterval(timer); //清除定时器
+                    }
+                  document.documentElement.scrollTop=document.body.scrollTop = jl -200; // 总滚动距离-向上滚动的距离 
+                  //document.documentElement.scrollTop=document.body.scrollTop = jl + ispeed;
+                }, 50);
+            }
+        if(jl<600){
+            oBtn.style.display="none";
+        }
+        if(jl>600){ oBtn.style.display="block";}
+}
+    
+</script>
+</html>

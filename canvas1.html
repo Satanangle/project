@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>canvas练习</title>
+<style>
+    *{
+        margin:0;
+        padding:0;
+    }
+    body{
+        background: #000;
+        text-align: center;
+    }
+    #can{
+        background: #fff;
+        margin:50px auto;
+    }
+</style>
+<script>
+window.onload=function(){
+    var ctx=document.getElementById('can');
+    var ctxs=ctx.getContext("2d");
+    var width=ctx.width;
+    var height=ctx.height;
+    var r=width/2;
+
+    function draw(){
+        ctxs.save();
+        ctxs.translate(r,r);
+        ctxs.beginPath();
+        ctxs.lineWidth=5;
+        ctxs.strokeStyle="red";
+        ctxs.arc(0,0,r-5,0,2*Math.PI,false)
+        ctxs.stroke();
+// 或18*rem+"px Arial"
+    var hourNumber=[3,4,5,6,7,8,9,10,11,12,1,2];
+         ctxs.font="18px Arial";
+         ctxs.textAlign="center"; //左右居中
+         ctxs.textBaseline="middle"  // 上下居中
+         hourNumber.forEach(function(number,i){
+           var rad=2*Math.PI/12*i; 
+           var x=Math.cos(rad)*(r-30);
+           var y=Math.sin(rad)*(r-30);
+           ctxs.fillText(number,x,y);
+         });
+
+
+    for(var i=0;i<60;i++){
+            var rad=2*Math.PI/60*i;  //定义弧度,60等分
+            var x=Math.cos(rad)*(r-15);
+            var y=Math.sin(rad)*(r-15);
+            ctxs.beginPath();  // 重新画圆
+            if(i%5===0){
+                ctxs.fillStyle="#000";
+                ctxs.arc(x,y,3,0,2*Math.PI,false);
+            }else{
+                ctxs.fillStyle="#ccc";
+                ctxs.arc(x,y,3,0,2*Math.PI,false);
+            }
+            ctxs.fill();
+        }
+
+    }
+    // draw();
+     
+    // 时针
+    function hours(hour,minute){
+        ctxs.save()
+        ctxs.beginPath();
+        var rad=2*Math.PI/12*hour;
+        var mrad=2*Math.PI/12/60*minute;
+        ctxs.rotate(rad+mrad);
+        ctxs.moveTo(0, 0);
+        ctxs.lineTo(0, r/2-5);
+        
+        ctxs.stroke();
+        ctxs.restore();
+    }
+    
+
+    // 分针
+    function mins(minute){
+        ctxs.save()
+        ctxs.beginPath();
+        var rad=2*Math.PI/60*minute;
+        ctxs.strokeStyle="green";
+        ctxs.rotate(rad);
+        ctxs.moveTo(0, 0);
+        ctxs.lineTo(0, r/2+10); 
+        ctxs.stroke();
+        ctxs.restore();
+    }
+    
+
+    // 秒针
+    function sec(second){
+        ctxs.save()
+        ctxs.beginPath();
+        var rad=2*Math.PI/60*second;
+        ctxs.strokeStyle="black";
+        ctxs.rotate(rad);
+        ctxs.moveTo(0, 0);
+        ctxs.lineTo(0, r/2+20);
+        
+        ctxs.stroke();
+        ctxs.restore();
+    }
+    
+    function drawDot(){
+         ctxs.beginPath();
+         ctxs.fillstyle="#fff";
+         ctxs.arc(0,0,3,0,2*Math.PI,false);
+         ctxs.fill();
+    }
+
+
+    // hours();
+    // mins();
+    // sec();
+    
+    function draws(){
+      ctxs.clearRect(0,0,width,height)  //清除一次画布
+      var now =new Date();
+      var hour =now.getHours();
+      var minute =now.getMinutes();
+      var second =now.getSeconds();
+
+        draw();
+        hours(hour,minute);
+        mins(minute);
+        sec(second);
+        drawDot();
+        ctxs.restore();
+    }
+
+    draws();
+    setInterval(draws,30);
+}
+
+</script>
+</head>
+<body>
+    <canvas width="400px" height="400px" id="can">
+        
+    </canvas>
+</body>
+</html>

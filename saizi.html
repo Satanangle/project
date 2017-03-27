@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>骰子</title>
+    <style>
+
+        .box{
+            width: 200px;
+            height:200px;
+            border-radius: 10px;
+            border:2px solid ;
+            display: flex;
+            float: left;
+            margin: 5px;
+        }
+        p{
+            width:45px;
+            height: 45px;
+            border-radius: 20px;
+            background: black;
+            /*margin:1px;*/
+        }
+
+        .one{
+            justify-content:center;
+            align-items:center;
+        }
+        .t{
+            justify-content: space-between;
+            align-items:center;
+            flex-direction: column;
+        }
+
+
+        
+
+
+        .six,.five{
+            flex-direction: column;
+            /*flex-warp:warp;*/
+            /*align-content: space-between;*/
+        }
+        .five .clu:nth-child(2){
+            justify-content:center;
+        }
+        .clu{
+            display: flex;
+            justify-content: space-between;
+        }
+        .f{
+            justify-content: space-between;
+            flex-warp:warp;
+            flex-direction: column;
+        }
+        .s{
+           flex-direction: column;
+        }
+        .s .clu:nth-child(2){
+           justify-content: center;
+        }
+        .s .clu:nth-child(3){
+            justify-content: flex-end;
+        }
+/*.f .clu:nth-child(2){
+            margin-top: 30%;
+        }*/
+
+    </style>
+</head>
+<body>
+    <div class='one  box'>
+        <p></p>
+    </div>
+    <div class='t box'>
+        <p></p>
+        <p></p>
+    </div>
+    <div class='s box'>
+         <div class="clu">
+            <p class="pp"></p>
+        </div>
+         <div class="clu">
+            <p class="pp"></p>
+        </div>
+         <div class="clu">
+            <p class="pp"></p>
+        </div>
+    </div>
+    <div class='f box'>
+        <div class="clu">
+            <p></p>
+            <p></p>
+        </div>
+        <div class="clu">
+             <p></p>
+            <p></p>
+        </div>
+        
+    </div>
+    <div class='five box'>
+        <div class="clu">
+            <p></p>
+            <p></p>
+        </div>
+        <div class="clu">
+            <p class="pp"></p>
+        </div>
+        <div class="clu">
+             <p></p>
+            <p></p>
+        </div>
+    </div>
+    <div class='six box'>
+        <div class='clu'>
+            <p></p>
+            <p></p>
+        </div>
+        <div class='clu'>
+            <p></p>
+            <p></p>
+        </div>
+        <div class='clu'>
+            <p></p>
+            <p></p>
+        </div>
+    </div>
+</body>
+</html>

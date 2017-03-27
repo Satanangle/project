@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>删除</title>
+</head>
+<body>
+    <div>
+        <ul id="ul">
+            <li>
+              12321334<a href="#">fd</a>
+            </li>
+            <li>
+               234343 <a href="#">vcv</a>
+            </li>
+            <li>
+                324234324<a href="#">bvb</a>
+            </li>
+        </ul>
+    </div>
+    <input type="button" name="" value="新建窗口" id="sj">
+    <script>
+    var a= document.getElementsByTagName("a");
+    var ul = document.getElementById('ul');
+    /*var b=a.parentNode;
+    console.log(b);*/
+    for(var i=0;i<a.length;i++){
+        a[i].onclick=function(){
+            //console.log(this.parentNode);
+            ul.removeChild(this.parentNode);
+        }
+    }
+    
+    var sjj=document.getElementById("sj");
+    sjj.onclick=function(){
+        window.open("固定居中及返回顶部.html","new","width=300,height=300,scrollbars;location")
+    }
+    </script>
+</body>
+</html>

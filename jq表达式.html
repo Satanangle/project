@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jq表达式</title>
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script>
+    /*$(document).ready(function(){
+        //$('div').bofore('span');
+        /*$('div').click(function(){
+            alert('div')
+        });*/
+       /* $('div').on('click',function(){
+            alert('span')
+        })*/
+        /*$('div').click(function(){
+            alert($('div').html('456'));
+            $('div').off('click');
+        })*/
+
+        /*
+        $('div').click(function(){
+            $('div:eq(1)').remove();
+        });
+        $('p').click(function(){
+            $('p').before('<div>123</div>')
+        });
+
+    });*/
+    $(document).on('ready scroll resize',function(){
+        //$('div').click( function(){
+            $('p').css({
+                left:($(window).width()-$('p').width())/2,
+                top:($(window).height()-$('p').height())/2+$(window).scrollTop()
+           // })
+            //$('p').css({top:'100px',left:'100px'})
+        });
+        $('span').click(function(){
+            $('p').remove();
+        })
+    })
+    </script>
+    <style>
+    body{
+        height: 2000px;
+    }
+    div{
+        width:50px;
+        height:30px;
+        border-radius: 5px;
+        text-align: center;
+        box-shadow: 1px 1px 1px red,-1px -1px 1px red;;
+    }
+    p{
+        width: 300px;
+        height: 300px;
+        text-align: center;
+        border: 1px solid;
+        position: absolute;
+
+    }
+    p span{
+        display: block;
+        width:15px;
+        height: 15px;
+        border: 1px solid ;
+        text-align: center;
+        position: absolute;
+        right: 3px;
+        top: 3px;
+    }
+    </style>
+</head>
+<body>
+    <div>点击</div>
+    <p>45958698569834568938698345<br/>68834568346 <span>x</span></p>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>正则表达式</title>
+    <script>
+    window.onload=function(){
+         var arr ='123456dJfFJhjkff113';//定义数组
+         var re=/j+/gi;//属性直接加在后面不用加斜杠
+    //console.log(arr.match(/\d/g));//跳出所有的数字
+    //alert(arr.match(/\d+/))//跳出的数字不会重复
+    alert(arr.match(re));
+    //alert(arr.match(/\w+/));//提出整个数组，没有隔开符号
+    //alert(arr.match(/\w/g));//每个字符窜用逗号隔开
+    //alert(arr.replace('j','i'))//j换成i
+    }
+   
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>h5-视屏银屏</title>
+    <style>
+        li{
+            list-style: none;
+            float: left;
+            margin-left: 20px;
+            border:1px solid red;
+            width: 200px;
+            height: 30px;
+        }
+    </style>
+</head>
+<body>
+    <!-- <video src="media/move.mp4" controls loop></video><br>
+     <video src="media/move.mp4" autoplay loop></video><br>
+    <audio src="media/song.ogg"></audio><br>
+    <video controls loop>
+        <source src="media/move.mp4"></sourec> 
+    </video><br>
+    <audio  controls loop>
+        <source src="media/song.mp3"></sourec>
+        <source src="media/song.ogg"></sourec>
+    </audio><br> -->
+    <!-- <audio src="http://s8.qhimg.com/share/audio/piano1/a4.mp3"  loop autoplay></audio>
+    <audio src="http://s8.qhimg.com/share/audio/piano1/d4.mp3"  loop autoplay></audio>
+    <audio src="http://s8.qhimg.com/share/audio/piano1/c5.mp3"  autoplay></audio> -->
+
+    <!-- 音乐导航 -->
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+    </ul>
+    <audio id="srt" autoplay></audio>
+    <script>
+    var a=document.getElementsByTagName('li');
+    var b=document.getElementById('srt');
+    var c=["a","b","c","d","e","f","g"];//new Array;
+              /*  c[0]="a";
+                c[1]="b";
+                c[2]="c";
+                c[3]="d";
+                c[4]="e";
+                c[5]="f";
+                c[6]="g";*/
+
+
+    for(i=0;i<=a.length;i++){
+        a[i].onmouseover=function(){
+            j=this.innerText-1;
+            console.log(j);
+            b.src="http://s8.qhimg.com/share/audio/piano1/"+c[j]+"4.mp3";
+            this.style="background:red";
+            this.src=b;
+        };
+        a[i].onmouseout=function(){
+            this.style="background:#fff"
+        }
+    }
+
+
+    </script>
+</body>
+</html>

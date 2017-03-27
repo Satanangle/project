@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>二级菜单</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+       a{
+            text-decoration: none;
+            color: #999;
+        }
+        .nav{
+            width: 1200px;
+            height: 30px;
+            text-align: center;
+            margin: 0 auto;
+            background: #ccc;
+            position: relative;
+            z-index: 1
+        }
+        .nav li{
+            float: left;
+            width: 240px;
+            height: 30px;
+            line-height: 30px;
+        } 
+         .nav li:hover>a{
+            display: block;
+            background: #000;
+            color: #fff;
+         }
+        .nav li .mnue{
+             width: 240px;
+             display: none;
+        }
+       .nav li .mnue a{
+        display: block;
+        background: #eee;
+        border-bottom: 2px solid #fff;
+        }
+        .nav li .mnue a:hover{
+            background: #000;
+            color: #fff;
+        }
+
+    .navs{
+        width: 1000px;
+         height: 500px;
+        margin: 10px auto;
+        border:1px solid red;
+       position: relative;
+       
+    }
+    .navs .left{
+        width: 100px;
+        
+        }
+    .navs ul li{
+        height:30px; 
+        line-height: 30px;
+        font-size: 12px;
+        padding-left:10px;
+        width:90px;
+        background: #ccc;
+        border-bottom:1px solid #fff; 
+    }
+     .navs ul li .right{
+        width: 990px;
+        height:500px;
+        font-size: 14px;
+        position: absolute;
+        left:100px;
+        top: 0px;
+        display: none;
+
+     }
+     .navs ul li:nth-child(1) div{
+        background: green;
+     }
+     .navs ul li:nth-child(2) div{
+        background: yellow;
+     }
+     .navs ul li:nth-child(3) div{
+        background: red;
+     }
+     .navs ul li:nth-child(4) div{
+        background: orange;
+     }
+     .navs ul li:nth-child(5) div{
+        background: #656777;
+     }
+     .navs ul li:nth-child(6) div{
+        background: #987856;
+     }
+     .navs ul li:nth-child(7) div{
+        background: #f66;
+     }
+     .navs ul li:nth-child(8) div{
+        background: #f44;
+     }
+
+     .tx{
+        width: 100px;
+        height: 30px;
+        background: orange;
+        position: relative;
+        left: 100px;
+        transform:skew(-45deg); 
+        
+     }
+     
+    </style>
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script>
+    $(function(){
+        $('.nav>li').hover(function(){
+            $(this).children('.mnue').slideDown()
+        },function(){
+            $(this).children('.mnue').slideUp()
+        });
+
+
+        $('.navs ul li').hover(function(){
+            $(this).css({background:"red",color:"#fff"}).siblings().css({background:"#ccc",color:'#000'});
+
+             $(this).children('.right').css('color','#000').fadeIn();
+        },function(){
+            $(this).css({background:"red",color:"#fff"}).siblings().css({background:"#ccc",color:'#000'});
+             $(this).children().fadeOut();
+
+        });
+
+
+        var x=0;
+        var y=0;
+        $('.tx').mousedown(function(ev){
+            x=ev.pageX-$(this).offset().left;
+           y=ev.pageY-$(this).offset().top;
+           console.log(ev.pageX)
+
+           $(document).mousemove(function(ev){
+                $('.tx').css('left',ev.pageX-x);
+                $('.tx').css('top',ev.pageY-y-552)
+            });
+
+
+            $('div').mouseup(function(){
+                $(document).off();
+            });
+
+            return false;
+
+        });
+
+        
+
+    })
+    </script>
+</head>
+<body>
+   
+        <ul class="nav">
+            <li>
+                <a href="#">首页</a>
+            </li>
+            <li>
+                <a href="#">我的空间</a>
+                <div class="mnue">
+                    <a href="">1</a>
+                    <a href="">1</a>
+                    <a href="">1</a>
+                    <a href="">1</a>
+                </div>
+            </li>
+            <li>
+                <a href="#">我的相册</a>
+                <div class="mnue">
+                    <a href="">12</a>
+                    <a href="">12</a>
+                    <a href="">12</a>
+                    <a href="">12</a>
+                </div>
+            </li>
+            <li>
+                <a href="#">我的日志</a>
+                <div class="mnue">
+                    <a href="">13</a>
+                    <a href="">13</a>
+                    <a href="">13</a>
+                    <a href="">13</a>
+                </div>
+            </li>
+            <li>
+                <a href="#">我的音乐</a>
+                <div class="mnue">
+                    <a href="">14</a>
+                    <a href="">14</a>
+                    <a href="">14</a>
+                    <a href="">14</a>
+                </div>
+            </li>
+        </ul>
+
+<div class="navs">
+    <ul class="left">
+        <li>鞋子/衣服/裤子
+            <div class="right">
+                <dl>
+                    <dt>鞋子</dt>
+                     <dd>安踏</dd><dd>安踏</dd><dd>安踏</dd>
+                </dl>
+                <dl>
+                    <dt>鞋子</dt>
+                    <dd>安踏</dd>
+                    <dd>安踏</dd> 
+                   <dd>安踏</dd>
+                </dl>
+            </div>
+        </li>
+        <li>2
+            <div class="right">1234</div>
+        </li>
+        <li>3
+            <div class="right">1235</div>
+        </li>
+        <li>4
+            <div class="right">1236</div>
+        </li>
+        <li>5
+            <div class="right">1237</div>
+        </li>
+        <li>6
+            <div class="right">1238</div>
+        </li>
+        <li>7
+            <div class="right">1239</div>
+        </li>
+        <li>8
+            <div class="right">1230</div>
+        </li>
+    </ul>
+</div> 
+
+<div class="tx"></div>
+</body>
+</html>
